@@ -53,6 +53,9 @@
             font-weight: 700;
             align-items: center;
         }
+        .main-nav .desktop-only {
+            display: inline-block;
+        }
         .main-nav .inactive-link {
             color: #b0b0b0;
             text-decoration: none;
@@ -196,11 +199,11 @@
         .article-intro-block {
             margin-top: 30px;
             margin-bottom: 25px;
-            overflow: hidden; /* Contient les éléments flottants */
+            overflow: hidden;
         }
         .article-intro-block img {
             float: left;
-            width: 38%; /* Légèrement réduite pour un meilleur équilibre visuel */
+            width: 38%;
             margin-right: 25px;
             margin-bottom: 10px;
             border-radius: 4px;
@@ -258,6 +261,7 @@
             box-shadow: 0 0 0 1px #00000026;
             overflow: hidden;
             max-width: 550px;
+            width: 100%;
         }
         .post-header { display: flex; padding: 12px 16px; align-items: center; }
         .profile-pic { width: 48px; height: 48px; border-radius: 4px; object-fit: cover; margin-right: 10px; }
@@ -302,6 +306,83 @@
         .lightbox-nav { position: absolute; top: 50%; color: white; font-size: 50px; cursor: pointer; transform: translateY(-50%); padding: 20px; user-select: none; }
         #lightbox-prev { left: 20px; }
         #lightbox-next { right: 20px; }
+
+        /* RESPONSIVE DESIGN (MOBILE & TABLETTE) */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px 15px;
+            }
+            .header-left {
+                gap: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .logo img {
+                height: 32px; /* Logo réduit sur mobile */
+            }
+            .main-nav {
+                gap: 8px;
+                font-size: 12px;
+            }
+            .main-nav .desktop-only {
+                display: none; /* Cache les liens non désirés sur mobile */
+            }
+            .main-nav .highlight-link {
+                padding: 6px 10px;
+            }
+            .header-right {
+                display: none; /* Cache la bourse, les liens annexes et le sélecteur de langue standard pour le déplacer proprement */
+            }
+            
+            /* On réintègre spécifiquement le sélecteur de langue dans le header mobile */
+            .mobile-lang-container {
+                display: flex;
+                align-items: center;
+            }
+
+            .social-sidebar {
+                display: none; /* Masque la barre latérale flottante sur mobile pour libérer de l'espace */
+            }
+
+            .tab-content {
+                padding: 20px 15px;
+            }
+
+            .article-header h1 {
+                font-size: 26px;
+            }
+
+            /* Passage de l'intro en mode empilé (image au-dessus) pour éviter les bugs d'affichage mobile */
+            .article-intro-block img {
+                float: none;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .linkedin-wrapper {
+                padding: 15px;
+            }
+
+            .post-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .linkedin-post {
+                max-width: 100%;
+            }
+        }
+
+        /* Par défaut, le conteneur de langue mobile est masqué sur grand écran */
+        .mobile-lang-container {
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            .mobile-lang-container {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
@@ -313,13 +394,15 @@
                 <img src="getlink logo.png" alt="Getlink Logo">
             </div>
             <nav class="main-nav">
-                <span class="inactive-link">Le Groupe</span>
-                <span class="inactive-link">Stratégie et durabilité</span>
-                <span class="inactive-link">Les Rencontres du Climat</span>
+                <span class="inactive-link desktop-only">Le Groupe</span>
+                <span class="inactive-link desktop-only">Stratégie et durabilité</span>
+                <span class="inactive-link desktop-only">Les Rencontres du Climat</span>
                 <a class="highlight-link active" onclick="switchTab('article')" id="nav-article">Actualités</a>
                 <a class="highlight-link" onclick="switchTab('linkedin')" id="nav-linkedin">Plan LinkedIn</a>
             </nav>
         </div>
+
+        <!-- Éléments bureau (masqués sur mobile) -->
         <div class="header-right">
             <div class="stock-info">
                 <span>Cours de l'action Getlink</span>
@@ -337,6 +420,12 @@
                 <a id="btn-lang-fr" class="active" onclick="setGlobalLang('fr')">FR</a>
                 <a id="btn-lang-en" onclick="setGlobalLang('en')">EN</a>
             </div>
+        </div>
+
+        <!-- Sélecteur de langue visible uniquement sur mobile dans le header épuré -->
+        <div class="lang-selector mobile-lang-container">
+            <a id="btn-lang-fr-mob" class="active" onclick="setGlobalLang('fr')">FR</a>
+            <a id="btn-lang-en-mob" onclick="setGlobalLang('en')">EN</a>
         </div>
     </header>
 
@@ -434,7 +523,7 @@
                     <p>Ce plan d'activation s'articule autour de trois publications complémentaires. L'objectif est de démontrer comment l'IA s'intègre concrètement dans l'ADN de Getlink et crée de la valeur. L'angle de communication évolue progressivement :</p>
                     <ul>
                         <li><strong>Post 1 : Vision Corporate (Jour J)</strong> - Pose le cadre, démontre la vision globale et la maturité technologique du Groupe.</li>
-                        <li><strong>Post 2 : Focus Ingénierie (J+2)</strong> - Apporte une "Proof of Concept" chiffrée, destinée à valoriser l'expertise interne et attirer les talents tech.</li>
+                        <li><strong>Post 2 : Focus Ingénierie (J+2)</strong> - Apporte une "Proof of Concept" (preuve par l'exemple) chiffrée, destinée à valoriser l'expertise interne et attirer les talents tech.</li>
                         <li><strong>Post 3 : Bénéfice Client (J+7)</strong> - Traduit l'innovation technologique en avantage tangible pour le client B2B/B2C (fluidité douanière, EES).</li>
                     </ul>
                 </div>
@@ -677,9 +766,18 @@ Discover our innovation approach. 👇
         }
 
         function setGlobalLang(lang) {
-            document.getElementById('btn-lang-fr').classList.remove('active');
-            document.getElementById('btn-lang-en').classList.remove('active');
-            document.getElementById('btn-lang-' + lang).classList.add('active');
+            // Synchronise bureau et mobile
+            ['fr', 'en'].forEach(l => {
+                const btnDesk = document.getElementById('btn-lang-' + l);
+                const btnMob = document.getElementById('btn-lang-' + l + '-mob');
+                if(btnDesk) btnDesk.classList.remove('active');
+                if(btnMob) btnMob.classList.remove('active');
+            });
+            
+            const targetDesk = document.getElementById('btn-lang-' + lang);
+            const targetMob = document.getElementById('btn-lang-' + lang + '-mob');
+            if(targetDesk) targetDesk.classList.add('active');
+            if(targetMob) targetMob.classList.add('active');
 
             const frElements = document.querySelectorAll('.global-fr-content');
             const enElements = document.querySelectorAll('.global-en-content');
