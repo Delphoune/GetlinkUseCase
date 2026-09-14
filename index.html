@@ -322,30 +322,29 @@
                 justify-content: space-between;
             }
             .logo img {
-                height: 32px; /* Logo réduit sur mobile */
+                height: 32px;
             }
             .main-nav {
                 gap: 8px;
                 font-size: 12px;
             }
             .main-nav .desktop-only {
-                display: none; /* Cache les liens non désirés sur mobile */
+                display: none;
             }
             .main-nav .highlight-link {
                 padding: 6px 10px;
             }
             .header-right {
-                display: none; /* Cache la bourse, les liens annexes et le sélecteur de langue standard pour le déplacer proprement */
+                display: none;
             }
             
-            /* On réintègre spécifiquement le sélecteur de langue dans le header mobile */
             .mobile-lang-container {
                 display: flex;
                 align-items: center;
             }
 
             .social-sidebar {
-                display: none; /* Masque la barre latérale flottante sur mobile pour libérer de l'espace */
+                display: none;
             }
 
             .tab-content {
@@ -356,7 +355,6 @@
                 font-size: 26px;
             }
 
-            /* Passage de l'intro en mode empilé (image au-dessus) pour éviter les bugs d'affichage mobile */
             .article-intro-block img {
                 float: none;
                 width: 100%;
@@ -378,7 +376,6 @@
             }
         }
 
-        /* Par défaut, le conteneur de langue mobile est masqué sur grand écran */
         .mobile-lang-container {
             display: none;
         }
@@ -398,24 +395,37 @@
                 <img src="getlink logo.png" alt="Getlink Logo">
             </div>
             <nav class="main-nav">
-                <span class="inactive-link desktop-only">Le Groupe</span>
-                <span class="inactive-link desktop-only">Stratégie et durabilité</span>
-                <span class="inactive-link desktop-only">Les Rencontres du Climat</span>
-                <a class="highlight-link active" onclick="switchTab('article')" id="nav-article">Actualités</a>
-                <a class="highlight-link" onclick="switchTab('linkedin')" id="nav-linkedin">Plan LinkedIn</a>
+                <!-- Liens FR -->
+                <span class="inactive-link desktop-only fr-content">Le Groupe</span>
+                <span class="inactive-link desktop-only fr-content">Stratégie et durabilité</span>
+                <span class="inactive-link desktop-only fr-content">Les Rencontres du Climat</span>
+                <a class="highlight-link active fr-content" onclick="switchTab('article')" id="nav-article-fr">Actualités</a>
+                <a class="highlight-link fr-content" onclick="switchTab('linkedin')" id="nav-linkedin-fr">Plan LinkedIn</a>
+
+                <!-- Liens EN -->
+                <span class="inactive-link desktop-only en-content">The Group</span>
+                <span class="inactive-link desktop-only en-content">Strategy & Sustainability</span>
+                <span class="inactive-link desktop-only en-content">Climate Dialogues</span>
+                <a class="highlight-link active en-content" onclick="switchTab('article')" id="nav-article-en">News</a>
+                <a class="highlight-link en-content" onclick="switchTab('linkedin')" id="nav-linkedin-en">LinkedIn Plan</a>
             </nav>
         </div>
 
         <!-- Éléments bureau (masqués sur mobile) -->
         <div class="header-right">
             <div class="stock-info">
-                <span>Cours de l'action Getlink</span>
+                <span class="fr-content">Cours de l'action Getlink</span>
+                <span class="en-content">Getlink Stock Price</span>
                 <strong>18.45€</strong>
                 <span class="positive">0.00%</span>
             </div>
             <div class="header-links">
-                <a href="https://www.getlinkgroup.com/actionnaires-et-investisseurs/" target="_blank">Actionnaires et Investisseurs</a>
-                <a href="https://jobs.getlinkgroup.com/?locale=fr_FR" target="_blank">Carrière</a>
+                <a href="https://www.getlinkgroup.com/actionnaires-et-investisseurs/" target="_blank" class="fr-content">Actionnaires et Investisseurs</a>
+                <a href="https://www.getlinkgroup.com/actionnaires-et-investisseurs/" target="_blank" class="en-content">Shareholders & Investors</a>
+
+                <a href="https://jobs.getlinkgroup.com/?locale=fr_FR" target="_blank" class="fr-content">Carrière</a>
+                <a href="https://jobs.getlinkgroup.com/?locale=fr_FR" target="_blank" class="en-content">Careers</a>
+
                 <a href="https://presse.getlinkgroup.com/" target="_blank">Presse</a>
                 <span>|</span>
                 <span>🔍</span>
@@ -451,7 +461,7 @@
         <div class="article-container">
             
             <!-- VERSION FR -->
-            <div class="global-fr-content fr-content">
+            <div class="fr-content">
                 <div class="article-header">
                     <h1>L'Intelligence Artificielle chez Getlink : repousser les frontières de la performance</h1>
                     <h2>Une stratégie d'innovation ciblée au service de l'infrastructure et des clients</h2>
@@ -483,7 +493,7 @@
             </div>
 
             <!-- VERSION EN -->
-            <div class="global-en-content en-content">
+            <div class="en-content">
                 <div class="article-header">
                     <h1>Artificial Intelligence at Getlink: pushing the boundaries of performance</h1>
                     <h2>A targeted innovation strategy serving infrastructure and customers</h2>
@@ -521,7 +531,7 @@
         <div class="linkedin-wrapper">
             
             <div class="strategy-intro">
-                <div class="global-fr-content fr-content">
+                <div class="fr-content">
                     <h2>Stratégie de publication éditoriale LinkedIn</h2>
                     <p><strong>Note d'intention :</strong> Ayant remarqué que les publications sur le compte LinkedIn officiel de Getlink alternent régulièrement entre l'anglais et le français pour toucher une audience internationale, j'ai conçu ces trois posts dans les deux langues. Cette flexibilité permet de coller parfaitement à vos habitudes éditoriales.</p>
                     <p>Ce plan d'activation s'articule autour de trois publications complémentaires. L'objectif est de démontrer comment l'IA s'intègre concrètement dans l'ADN de Getlink et crée de la valeur. L'angle de communication évolue progressivement :</p>
@@ -532,7 +542,7 @@
                     </ul>
                 </div>
                 
-                <div class="global-en-content en-content">
+                <div class="en-content">
                     <h2>LinkedIn Editorial Publishing Strategy</h2>
                     <p><strong>Statement of Intent:</strong> Having noticed that posts on Getlink's official LinkedIn account regularly alternate between English and French to reach an international audience, I have designed these three posts in both languages. This flexibility perfectly aligns with your editorial habits.</p>
                     <p>This activation plan is built around three complementary publications. The goal is to demonstrate how AI concretely integrates into Getlink's DNA and creates value. The communication angle evolves progressively:</p>
@@ -547,7 +557,7 @@
             <!-- POST 1 -->
             <div class="post-row">
                 <div class="explanation-bubble">
-                    <div class="global-fr-content fr-content">
+                    <div class="fr-content">
                         <h4>📝 Choix de communication : Post 1</h4>
                         <ul>
                             <li><strong>L'Angle :</strong> Institutionnel mais direct. On affirme la posture de Getlink en tant qu'acteur pragmatique face à l'IA.</li>
@@ -555,7 +565,7 @@
                             <li><strong>Les Hashtags :</strong> L'utilisation de <em>#Innovation</em> et <em>#IntelligenceArtificielle</em> permet de toucher une audience technologique très large et multisectorielle (sujets "tendance" à fort volume). En parallèle, <em>#Getlink</em> et <em>#Eurotunnel</em> ancrent le message pour notre communauté directe et nos parties prenantes.</li>
                         </ul>
                     </div>
-                    <div class="global-en-content en-content">
+                    <div class="en-content">
                         <h4>📝 Communication Choices: Post 1</h4>
                         <ul>
                             <li><strong>The Angle:</strong> Institutional yet direct. We assert Getlink's posture as a pragmatic player regarding AI.</li>
@@ -611,7 +621,7 @@ Performance, Anticipation, Augmentation: discover in our latest article how we d
             <!-- POST 2 -->
             <div class="post-row">
                 <div class="explanation-bubble">
-                    <div class="global-fr-content fr-content">
+                    <div class="fr-content">
                         <h4>📝 Choix de communication : Post 2</h4>
                         <ul>
                             <li><strong>L'Angle :</strong> Preuve technique et chiffres chocs (50% de réduction d'incidents). On parle ingénierie pure.</li>
@@ -619,7 +629,7 @@ Performance, Anticipation, Augmentation: discover in our latest article how we d
                             <li><strong>Les Hashtags :</strong> <em>#MaintenancePredictive</em> et <em>#Engineering</em> sont des mots-clés d'expertise, très suivis par les profils d'ingénieurs de niche et les experts de l'industrie ferroviaire. Cela aide au rayonnement de notre marque employeur sur des profils qualifiés.</li>
                         </ul>
                     </div>
-                    <div class="global-en-content en-content">
+                    <div class="en-content">
                         <h4>📝 Communication Choices: Post 2</h4>
                         <ul>
                             <li><strong>The Angle:</strong> Technical proof and striking figures (50% incident reduction). We talk pure engineering.</li>
@@ -677,7 +687,7 @@ Dive behind the scenes of our operational excellence. 👇
             <!-- POST 3 -->
             <div class="post-row">
                 <div class="explanation-bubble">
-                    <div class="global-fr-content fr-content">
+                    <div class="fr-content">
                         <h4>📝 Choix de communication : Post 3</h4>
                         <ul>
                             <li><strong>L'Angle :</strong> Résolution de problème et anticipation douanière (les normes EES).</li>
@@ -685,7 +695,7 @@ Dive behind the scenes of our operational excellence. 👇
                             <li><strong>Les Hashtags :</strong> <em>#DigitalTwin</em> et <em>#SmartBorder</em> positionnent Getlink à la pointe de l'innovation B2B dans la logistique, ciblant nos partenaires institutionnels et transporteurs. Le hashtag <em>#CustomerExperience</em> adoucit le message en rappelant que la finalité reste le confort du voyageur.</li>
                         </ul>
                     </div>
-                    <div class="global-en-content en-content">
+                    <div class="en-content">
                         <h4>📝 Communication Choices: Post 3</h4>
                         <ul>
                             <li><strong>The Angle:</strong> Problem solving and customs anticipation (EES standards).</li>
@@ -757,15 +767,21 @@ Discover our innovation approach. 👇
         function switchTab(tabName) {
             document.getElementById('tab-article-content').classList.remove('active');
             document.getElementById('tab-linkedin-content').classList.remove('active');
-            document.getElementById('nav-article').classList.remove('active');
-            document.getElementById('nav-linkedin').classList.remove('active');
+            
+            // Désactive les boutons d'onglets FR et EN
+            document.getElementById('nav-article-fr').classList.remove('active');
+            document.getElementById('nav-article-en').classList.remove('active');
+            document.getElementById('nav-linkedin-fr').classList.remove('active');
+            document.getElementById('nav-linkedin-en').classList.remove('active');
 
             if(tabName === 'article') {
                 document.getElementById('tab-article-content').classList.add('active');
-                document.getElementById('nav-article').classList.add('active');
+                document.getElementById('nav-article-fr').classList.add('active');
+                document.getElementById('nav-article-en').classList.add('active');
             } else {
                 document.getElementById('tab-linkedin-content').classList.add('active');
-                document.getElementById('nav-linkedin').classList.add('active');
+                document.getElementById('nav-linkedin-fr').classList.add('active');
+                document.getElementById('nav-linkedin-en').classList.add('active');
             }
         }
 
@@ -783,17 +799,22 @@ Discover our innovation approach. 👇
             if(targetDesk) targetDesk.classList.add('active');
             if(targetMob) targetMob.classList.add('active');
 
-            const frElements = document.querySelectorAll('.global-fr-content');
-            const enElements = document.querySelectorAll('.global-en-content');
+            const frElements = document.querySelectorAll('.fr-content');
+            const enElements = document.querySelectorAll('.en-content');
 
             if(lang === 'fr') {
-                frElements.forEach(el => el.style.display = 'block');
+                frElements.forEach(el => el.style.display = (el.tagName === 'SPAN' ? 'inline-block' : 'block'));
                 enElements.forEach(el => el.style.display = 'none');
             } else {
                 frElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = (el.tagName === 'SPAN' ? 'inline-block' : 'block'));
             }
         }
+
+        // Initialisation au chargement de la page : forcer explicitement le français par défaut
+        window.addEventListener('DOMContentLoaded', () => {
+            setGlobalLang('fr');
+        });
 
         function togglePostLang(postId, lang) {
             const container = document.getElementById('post' + postId + '-' + lang).parentElement;
